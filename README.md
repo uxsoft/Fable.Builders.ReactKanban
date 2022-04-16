@@ -8,9 +8,13 @@ React Kanban bindings for Fable React
 
 ### Dependencies:
 
-`yarn add @lourenci/react-kanban`
+```bash
+yarn add @asseinfo/react-kanban
+```
 
-`dotnet package add Fable.ReactKanban`
+```bash
+dotnet package add Fable.ReactKanban
+```
 
 ### Fable
 
