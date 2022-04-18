@@ -19,13 +19,13 @@ dotnet package add Fable.ReactKanban
 ### Fable
 
 ```fsharp
-KanbanBoard<KBoard, KColumn, KCard>()
-    .disableColumnDrag()
-    .style([ Width "100%"; Height "3000px" ])
-    .onCardDragEnd(fun card source destination ->
+KanbanBoard<KBoard, KColumn, KCard> {
+    disableColumnDrag true
+    style [ style.width (length.percent 100); style.height 3000 ]
+    onCardDragEnd (fun card source destination ->
         onChangeStatus app card.id destination.toColumnId)
-    .renderCard(fun (card) props ->
-        div [] [ str card.title ])
-    .children(mapBoard app level)
-    .[[]]
+    renderCard (fun (card) props ->
+        div { str card.title })
+    children (mapBoard app level)
+}
 ```
