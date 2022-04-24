@@ -9,7 +9,7 @@ type KanbanBuilder<'TBoard, 'TColumn, 'TCard>() =
     inherit ReactBuilder(import "default" "@asseinfo/react-kanban")
     
     [<CustomOperation("initialBoard")>] member inline _.initialBoard (x: DSLElement, v: 'TBoard) = x.attr "initialBoard" v
-    [<CustomOperation("onCardDragEnd")>] member inline _.onCardDragEnd (x: DSLElement, v: Func<'TCard, {| fromColumnId: int; fromPosition: int |}, {| toColumnId: int; toPosition: int |}, unit>) = x.attr "onCardDragEnd" v
+    [<CustomOperation("onCardDragEnd")>] member inline _.onCardDragEnd (x: DSLElement, v: Func<'TCard, {| fromColumnId: string; fromPosition: int |}, {| toColumnId: string; toPosition: int |}, unit>) = x.attr "onCardDragEnd" v
     [<CustomOperation("onColumnDragEnd")>] member inline _.onColumnDragEnd (x: DSLElement, v: Func<'TColumn, {| fromPosition: int |}, {| toPosition: int |}, unit>) = x.attr "onColumnDragEnd" v
     [<CustomOperation("renderCard")>] member inline _.renderCard (x: DSLElement, v: Func<'TCard, obj, ReactElement>) = x.attr "renderCard" v
     [<CustomOperation("renderColumnHeader")>] member inline _.renderColumnHeader (x: DSLElement, v: Func<'TColumn, {| removeColumn: unit -> unit; renameColumn: string -> unit; addCard: 'TCard -> unit |}, ReactElement>) = x.attr "renderColumnHeader" v
